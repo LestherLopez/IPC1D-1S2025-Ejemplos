@@ -16,37 +16,63 @@ public class Clase1 {
      */
     public static void main(String[] args) {
         // Mi primer comentario
+        //Creamos un objeto Scanner para leer la entrada del usuario desde la consola
         Scanner scanner = new Scanner(System.in);
+        
+        // Variable para almacenar la opción que el usuario seleccionará en el menú
         int opcion;
         
+        // Usamos un bucle "do-while" para mostrar el menú al menos una vez
         do {
-            System.out.println("Mi primer menu");
+            // Mostramos el menú en la consola con sus 3 opciones
+            System.out.println("Mi primer menú");
             System.out.println("1. Un saludo");
-            System.out.println("2. Calcular suma de dos numeros");
+            System.out.println("2. Calcular suma de dos números");
             System.out.println("3. Salir");
+            
+            // Leemos la opción que ingresa el usuario
             opcion = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Consumimos la línea vacía generada al presionar Enter después de ingresar un número.
+
+      
+            // Evaluamos la opción seleccionada usando un "switch", una alternativa es IF con ELSE IF y ELSE.
             switch (opcion) {
                 case 1:
+                    // Opción 1: Pedimos el nombre del usuario y lo saludamos
                     System.out.println("Ingrese su nombre: ");
-                    String nombre = scanner.nextLine();
-                    System.out.println("hola " + nombre);
+                    String nombre = scanner.nextLine(); // Leemos el nombre
+                    System.out.println("Hola " + nombre); // Mostramos el saludo
                     break;
+                    
                 case 2:
-                    System.out.print("Ingrese el primer numero: ");
-                    int numero1 = scanner.nextInt();
-                    System.out.print("Ingrese el segundo numero: ");
-                    int numero2 = scanner.nextInt();
-                    System.out.println(numero1 + numero2);
+                    // Opción 2: Pedimos dos números al usuario y mostramos su suma
+                    System.out.print("Ingrese el primer número: ");
+                    int numero1 = scanner.nextInt(); // Leemos el primer número
+                    
+                    System.out.print("Ingrese el segundo número: ");
+                    int numero2 = scanner.nextInt(); // Leemos el segundo número
+                    
+                    // Mostramos la suma de los dos números
+                    System.out.println("La suma es: " + (numero1 + numero2));
                     break;
+                    
                 case 3:
-                    System.out.println("adios");
+                    // Opción 3: Mensaje de despedida antes de salir del programa
+                    System.out.println("Adiós");
                     break;
+                    
                 default:
-                    System.out.println("opcion invalida");
+                    // Mensaje si el usuario ingresa una opción inválida
+                    System.out.println("Opción inválida. Inténtelo de nuevo.");
             }
-        } while (opcion != 3);
+            
+        } while (opcion != 3); // El bucle se repite hasta que el usuario elija la opción 3 que significa salir.
         
     }
-    
 }
+/*
+Mi primer menú
+1. Un saludo
+2. Calcular suma de dos números
+3. Salir
+*/
