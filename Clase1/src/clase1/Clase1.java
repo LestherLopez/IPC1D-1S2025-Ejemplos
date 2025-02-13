@@ -9,6 +9,7 @@ package clase1;
  * @author Lesther
  */
 import java.util.Scanner;
+import java.util.Random;
 public class Clase1 {
 
     /**
@@ -33,8 +34,9 @@ public class Clase1 {
             // Leemos la opción que ingresa el usuario
             opcion = scanner.nextInt();
             scanner.nextLine(); // Consumimos la línea vacía generada al presionar Enter después de ingresar un número.
-
-      
+            int intentos[] = new int[25];
+            String nombres[] = new String[25];
+            int puntos[] = new int[25];
             // Evaluamos la opción seleccionada usando un "switch", una alternativa es IF con ELSE IF y ELSE.
             switch (opcion) {
                 case 1:
@@ -42,6 +44,25 @@ public class Clase1 {
                     System.out.println("Ingrese su nombre: ");
                     String nombre = scanner.nextLine(); // Leemos el nombre
                     System.out.println("Hola " + nombre); // Mostramos el saludo
+                    // generacion de matriz
+                    int filas = 10; //numero filas
+                    int columnas = 10; //numero columnas
+                    char[][] matriz = new char[filas][columnas];//declarar matriz
+                    
+                    Random random = new Random();
+                    // llenamoos matriz de letras al azar
+                    for (int i=0; i<filas; i++){
+                        for (int j=0; j<columnas; j++){
+                            matriz[i][j] = (char) (random.nextInt(26) + 'a');
+                        }
+                    }
+                    //imprimir matriz
+                    for(int i=0; i<filas; i++){
+                        for (int j=0; j<columnas; j++){
+                            System.out.print(matriz[i][j]);
+                        }
+                        System.out.println();
+                    }
                     break;
                     
                 case 2:
