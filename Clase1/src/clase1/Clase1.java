@@ -69,10 +69,10 @@ public class Clase1 {
                     // Opción 2: Pedimos dos números al usuario y mostramos su suma
                     System.out.print("Ingrese el primer número: ");
                     int numero1 = scanner.nextInt(); // Leemos el primer número
-                    
+                  
                     System.out.print("Ingrese el segundo número: ");
                     int numero2 = scanner.nextInt(); // Leemos el segundo número
-                    
+                        
                     // Mostramos la suma de los dos números
                     System.out.println("La suma es: " + (numero1 + numero2));
                     break;
