@@ -21,10 +21,10 @@ public class Reloj extends Thread{
     public void run(){
           
         vista.mostrarMensaje("hilo reloj");
-        while (true) {  // 🔹 Mantiene la ejecución continua
+        while (true) { 
             vista.mostrarMensaje("--> M: " + minutos + " S: " + segundos);
             
-            segundos++; // 🔹 Incrementa correctamente
+            segundos++; 
             
             if (segundos == 30) {
                 segundos = 0;
@@ -32,7 +32,7 @@ public class Reloj extends Thread{
             }
             
             try {
-                sleep(1000); // 🔹 Ahora es 1 segundo por cada iteración
+                sleep(1000); 
             } catch (InterruptedException e) {
                 vista.mostrarMensaje("ERROR en el hilo Reloj");
                 break;
