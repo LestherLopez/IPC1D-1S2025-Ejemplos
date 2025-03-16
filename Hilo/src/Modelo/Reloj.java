@@ -44,6 +44,6 @@ public class Reloj extends Thread{
      
 }
 /*CORRECCION
-SE CAMBIO EL FOR POR UN WHILE, EL CUAL PERMITE EJECUTAR EL RELOJ DE MANERA INDEFINIDA, YA QUE CON FOR TENIAMOS UN LIMITE ES
-MEJOR MANEJAR ESTO CON UN WHILE INDEFINIDO.
+Se cambio el for por un while, el cual permite que el reloj avance de manera continua y realista, 
+esperando 1 segundo en cada iteración.
 */
