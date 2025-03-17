@@ -14,3 +14,8 @@ Para utilziar jfreechart se tiene que incluir el .jar  en la biblioteca del proy
 ### Enlace para descargar el .jar de jfreechart-1.5.3
 
 https://drive.google.com/drive/folders/1AdzwWDmVNOnh_dxYgq3jloMu98VvdXLG?usp=sharing
+
+
+### Resultado
+
+![alt text](./img/image.png)
