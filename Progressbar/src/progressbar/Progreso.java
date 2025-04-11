@@ -15,29 +15,25 @@ public class Progreso {
     vistaCarga vista;
     // arreglo con capacidad para 10 registros
     private int[] colaVehiculos = new int[10]; 
-    // variable que nos indica cuantos registros se han agregado, en este caso fueron 6
+    // variable que nos indica cuantos registros se han agregado
     private int indiceActual = 0;    
     // variable que nos da el indice del registro que esta en proceso
     private int indiceProcesado = 0; 
     // constructor de la clase que recibe la vista
     public Progreso(vistaCarga vista) {
         this.vista = vista;
-        // iniciar hilo que procesara los vehiculos agregados
+        // bloque para iniciar hilos de los procesos
         new Thread(this::cargarColaEspera).start();
-        
-        //-- en este bloque inician los hilos de las diversas procesos--
     }
     // metodo para agregar registros a la cola
     public void agregarVehiculo(int idVehiculo) {
-        // verificar que existan espacios en el arreglo que representa la cola
-        if (indiceActual < colaVehiculos.length) {
-            // Guardamos el ID del vehículo en el arreglo
-            colaVehiculos[indiceActual] = idVehiculo;
-            System.out.println("Vehículo " + idVehiculo + " agregado.");
-            indiceActual++; // aumentar el contador de vehiculos agregados
-        } else {
-            System.out.println("Cola llena."); //advertencia que no hay mas espacios para agregar vehiculos
-        }
+        
+       
+        // Guardamos el ID del vehículo en el arreglo
+        colaVehiculos[indiceActual] = idVehiculo;
+        System.out.println("Vehículo " + idVehiculo + " agregado.");
+        indiceActual++; // aumentar el contador de vehiculos agregados
+     
     }
     // simulacion de la barra de progreso de la cola de espera
     public void cargarColaEspera() {
@@ -49,9 +45,9 @@ public class Progreso {
                 // simular la barra de 0 a 100
                 for (int i = 0; i <= 100; i++) {
                     final int progreso = i; // valor que se asigna a la barra de progreso
-                    SwingUtilities.invokeLater(() -> vista.progressBar.setValue(progreso)); // colocar valor en la barra de progreso
+                    SwingUtilities.invokeLater(() -> vista.progressBar.setValue(progreso)); 
                     try {
-                        Thread.sleep(100); // Espera 100 milisegundos antes de subir un punto más en la barra de progreso. 
+                        Thread.sleep(100); // Espera entre cada incremento 
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt(); //si falla colocar el hilo como interrumpido
                     }
@@ -59,7 +55,7 @@ public class Progreso {
                 // al completar la barra de progreso se actualiza el label con los registros procesados
                 SwingUtilities.invokeLater(() -> vista.lblCola.setText("registro procesado: " + vehiculo));
                 System.out.println("Vehículo " + vehiculo + " procesado.");
-                // -- aqui mandan los registros o vehiculos a otro vector para poder pasar a otro proceso --
+                // -- mandar los registros o vehiculos a otro vector para poder pasar a otro proceso--
                 indiceProcesado++;
             } else {
                 try {
